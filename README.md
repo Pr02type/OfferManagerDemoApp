@@ -18,3 +18,9 @@ Oder in Visual Studio: `OfferManagerDemoApp.csproj` öffnen und starten.
 - `ViewModels/OffersViewModel.cs`
 - `Views/MainWindow.xaml` (+ Code-behind)
 - `App.xaml`, `App.xaml.cs`
+
+## Ziele & Architektur
+- MVVM (Model–View–ViewModel)
+- DI via Microsoft.Extensions.DependencyInjection
+- WPF (.NET 8, XAML) mit DataGrid, Commands und Bindings
+
