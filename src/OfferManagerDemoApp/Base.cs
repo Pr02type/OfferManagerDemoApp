@@ -11,13 +11,17 @@ namespace OfferManagerDemo
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
-        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? name = null)
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null, Action? onChanged = null)
         {
-            if (Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(name);
+            if (EqualityComparer<T>.Default.Equals(storage, value))
+                return false;
+
+            storage = value;
+            onChanged?.Invoke();
+            OnPropertyChanged(propertyName);
             return true;
         }
+
     }
 
     public sealed class RelayCommand : ICommand
