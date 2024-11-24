@@ -1,8 +1,15 @@
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows.Input;
+/// <summary>
+/// ViewModel für die Angebotsliste (MVVM).
+/// Zuständig für: Datenbindung (Items/SelectedOffer), Suche/Filter, Commands (Refresh/Statuswechsel).
+/// Hinweis: Diese Demo nutzt bewusst einen Mock-Service; Persistenz ist nicht Teil des Beispiels.
+/// </summary>
+
+
 using OfferManagerDemo.Models;
 using OfferManagerDemo.Services;
+using System.Collections.ObjectModel;
+using System.Runtime.ConstrainedExecution;
+using System.Windows.Input;
 
 namespace OfferManagerDemo.ViewModels
 {
@@ -19,9 +26,13 @@ namespace OfferManagerDemo.ViewModels
             SetLostCommand = new RelayCommand(_ => SetStatus("Lost"), _ => SelectedOffer is not null);
         }
 
+        //Sammlung der angezeigten Angebote für das DataGrid.
         public ObservableCollection<Offer> Items { get; } = new();
 
+
         private Offer? _selectedOffer;
+        
+        //Aktuell ausgewähltes Angebot in der Liste.
         public Offer? SelectedOffer
         {
             get => _selectedOffer;
@@ -29,6 +40,7 @@ namespace OfferManagerDemo.ViewModels
         }
 
         private string? _search;
+        //Suchbegriff, einfache Filterung der Liste.
         public string? Search
         {
             get => _search;
@@ -42,9 +54,13 @@ namespace OfferManagerDemo.ViewModels
             set => SetProperty(ref _isBusy, value);
         }
 
+        //Aktualisiert die Liste aus dem Service
         public ICommand RefreshCommand { get; }
+        //Fügt ein neues Angebot hinzu (mit Default-Werten)
         public ICommand AddCommand { get; }
+        // Setzt den Status des ausgewählten Angebots auf "Won"
         public ICommand SetWonCommand { get; }
+        // Setzt den Status des ausgewählten Angebots auf "Lost"
         public ICommand SetLostCommand { get; }
 
         public async Task LoadAsync()
