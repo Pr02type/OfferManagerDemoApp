@@ -24,3 +24,15 @@ Oder in Visual Studio: `OfferManagerDemoApp.csproj` öffnen und starten.
 - DI via Microsoft.Extensions.DependencyInjection
 - WPF (.NET 8, XAML) mit DataGrid, Commands und Bindings
 
+## How to run
+
+Dieses Projekt wurde mit .NET 8 und WPF entwickelt.  
+Zum Starten genügt:
+
+```
+cd src/OfferManagerDemoApp
+dotnet build
+dotnet run
+```
+
+
