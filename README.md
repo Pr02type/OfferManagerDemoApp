@@ -35,4 +35,8 @@ dotnet build
 dotnet run
 ```
 
+## Preview
+
+![Offer Manager DEMO](docs/screenshot.png)
+
 
