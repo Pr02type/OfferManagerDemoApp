@@ -1,11 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+/// <summary>
+/// Einfacher Mock für Angebotsdaten.
+/// Zweck: UI-Demo & schnelle Tests ohne DB/Repository.
+/// TODO: Für Produktion durch ein persistentes Repository ersetzen (EF Core/REST o.ä.).
+/// </summary>
+
 using OfferManagerDemo.Models;
 
 namespace OfferManagerDemo.Services
 {
+    // Demo-Daten: bewusst klein gehalten, damit UI-Tests schnell bleiben.
     public class MockOfferService : IOfferService
     {
         private readonly List<Offer> _offers = new()
