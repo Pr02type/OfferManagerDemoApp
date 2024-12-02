@@ -1,9 +1,15 @@
-/// <summary>
-/// ViewModel für die Angebotsliste (MVVM).
-/// Zuständig für: Datenbindung (Items/SelectedOffer), Suche/Filter, Commands (Refresh/Statuswechsel).
-/// Hinweis: Diese Demo nutzt bewusst einen Mock-Service; Persistenz ist nicht Teil des Beispiels.
-/// </summary>
-
+/* 
+<summary>
+Das ViewModel verwaltet die Angebotsliste der Demo-App.
+Es stellt der View (MainWindow.xaml) alle Daten und Befehle zur Verfügung,
+die für Anzeige, Aktualisierung und Selektion von Angeboten notwendig sind.
+</summary>
+<remarks>
+- <see cref="Offers"/> ist die ObservableCollection, an die das DataGrid gebunden ist.  
+- <see cref="SelectedOffer"/> repräsentiert das aktuell markierte Angebot.  
+- Commands (z. B. RefreshCommand) dienen der Interaktion mit dem Service.  
+</remarks>
+*/
 
 using OfferManagerDemo.Models;
 using OfferManagerDemo.Services;
