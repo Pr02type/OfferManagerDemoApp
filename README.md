@@ -38,4 +38,17 @@ dotnet run
 
 ![Offer Manager DEMO](docs/screenshot.png)
 
+## Known limitations
+- **Mock-Daten**, keine Persistenz (keine DB/REST). Fokus ist UI/MVVM.
+- **Fehlerbehandlung/Validierung** minimal gehalten.
+- **Tests**: keine Unit-Tests enthalten (bewusst reduziert für Demo).
+- **Internationalisierung**: keine Lokalisierung vorgesehen.
+
+## Contributing
+1. Repo forken und lokal klonen.
+2. Feature-Branch anlegen: `git switch -c feature/<kurz-beschreibung>`
+3. Saubere Commits (präzise Messages, kleine Einheiten).
+4. `dotnet build` (optional: `dotnet format` falls eingerichtet).
+5. Pull Request erstellen – kurze Beschreibung, Screenshots willkommen.
+
 
